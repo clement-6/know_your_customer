@@ -1,0 +1,41 @@
+
+CREATE SEQUENCE  FILE_SEQ MINVALUE 1 INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE  USERS_SEQ MINVALUE 1 INCREMENT BY 1 START WITH 1;
+
+CREATE TABLE IF NOT EXISTS USERS
+(
+    ID            INT UNIQUE PRIMARY KEY ,
+    USER_KEY      VARCHAR(250)                        NOT NULL UNIQUE,
+    LAST_NAME     VARCHAR(250)                        NOT NULL,
+    FIRST_NAME    VARCHAR(250),
+    EMAIL         VARCHAR                             NOT NULL,
+    PHONE         VARCHAR                             NOT NULL,
+    PASSWORD      VARCHAR                             NOT NULL,
+    USER_TYPE     VARCHAR                           NOT NULL,
+    BIRTH_DATE    TIMESTAMP,
+    STATUS        VARCHAR                         NOT NULL DEFAULT 'ACTIVE',
+    CREATED       TIMESTAMP(8) DEFAULT LOCALTIMESTAMP NOT NULL,
+    LAST_MODIFIED TIMESTAMP(8) DEFAULT LOCALTIMESTAMP NOT NULL,
+    VERSION            NUMERIC
+);
+
+
+CREATE TABLE IF NOT EXISTS DOCUMENT_KYC
+(
+    ID             NUMERIC PRIMARY KEY,
+    FILE_KEY       VARCHAR UNIQUE                     NOT NULL,
+    FILE_NAME      VARCHAR(250) UNIQUE                NOT NULL,
+    FILE_TYPE      VARCHAR(10000)                     NOT NULL,
+    FILE_DATA      BYTEA                              NOT NULL,
+    FILE_SIZE      NUMERIC                            NOT NULL,
+    CHECKSUM       VARCHAR                            NOT NULL,
+    TYPE           VARCHAR                      NOT NULL,
+    STATUS         VARCHAR                    NOT NULL DEFAULT 'PENDING',
+    USERS_KEY      VARCHAR(250)                       NOT NULL,
+    CREATED       TIMESTAMP(8) DEFAULT LOCALTIMESTAMP NOT NULL,
+    LAST_MODIFIED TIMESTAMP(8) DEFAULT LOCALTIMESTAMP NOT NULL,
+    CREATED_BY         VARCHAR,
+    LAST_MODIFIED_BY   VARCHAR,
+    VERSION            NUMERIC,
+    FOREIGN KEY (USERS_KEY) REFERENCES USERS(USER_KEY)
+);

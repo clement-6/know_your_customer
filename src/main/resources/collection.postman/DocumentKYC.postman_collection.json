@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "ae6b075a-7a99-492c-84aa-f5773c1a0f0c",
+		"name": "DocumentKYC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23362399"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lastName\": \"daniella\",\r\n  \"firstName\": \"clementine\",\r\n  \"email\": \"daniella@gmail.com\",\r\n  \"phone\": \"655478976\",\r\n  \"passWord\": \"1234\",\r\n  \"birthDate\": \"06.10.1998\",\r\n  \"userType\": \"MERCHANTS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"daniellin\",\r\n    \"firstName\": \"clementin\",\r\n    \"email\": \"daniella@gmail.com\",\r\n    \"phone\": \"655478976\",\r\n    \"passWord\": \"1234\",\r\n    \"birthDate\": \"06.10.1998\",\r\n    \"userType\": \"ADMIN\",\r\n    \"id\": 1,\r\n    \"version\": 0,\r\n    \"status\": \"ACTIVE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/users/402cd65c-eb68-4ca3-b609-d5dba7715937",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"users",
+								"402cd65c-eb68-4ca3-b609-d5dba7715937"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/users/402cd65c-eb68-4ca3-b609-d5dba7715937",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"users",
+								"402cd65c-eb68-4ca3-b609-d5dba7715937"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fired user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/users/402cd65c-eb68-4ca3-b609-d5dba7715937/fire",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"users",
+								"402cd65c-eb68-4ca3-b609-d5dba7715937",
+								"fire"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActiveUSer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/users/402cd65c-eb68-4ca3-b609-d5dba7715937/activate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"users",
+								"402cd65c-eb68-4ca3-b609-d5dba7715937",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "file",
+			"item": [
+				{
+					"name": "upload file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/tekam/Downloads/Capture d’écran 2025-09-11 075325.png"
+								},
+								{
+									"key": "type",
+									"value": "CNI",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/kycFiles/users/402cd65c-eb68-4ca3-b609-d5dba7715937",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"kycFiles",
+								"users",
+								"402cd65c-eb68-4ca3-b609-d5dba7715937"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rejected",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/kycFiles/c0c9910a-13ea-4cc1-97c9-5af607ff11b8/rejected",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"kycFiles",
+								"c0c9910a-13ea-4cc1-97c9-5af607ff11b8",
+								"rejected"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "approved",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/kycFiles/{{fileKey}}/approved",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"kycFiles",
+								"{{fileKey}}",
+								"approved"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/kycFiles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"kycFiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/kycFiles/{{fileKey}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"kycFiles",
+								"{{fileKey}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "download file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/documentKYC/v1/kycFiles/c0c9910a-13ea-4cc1-97c9-5af607ff11b8/download",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"documentKYC",
+								"v1",
+								"kycFiles",
+								"c0c9910a-13ea-4cc1-97c9-5af607ff11b8",
+								"download"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "authentication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"daniella@gmail.com\",\r\n  \"passWord\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/documentKYC/v1/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"documentKYC",
+						"v1",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
